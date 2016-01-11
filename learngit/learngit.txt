@@ -9,4 +9,10 @@
 	git status.(可以告诉你当前是否有改变了还没添加的文件,是否有添加了还没有				提交的文件);
 4.查看修改文件的不同之处
 	git diff filename
+5.git回退功能.
+	在git中head表示当前的版本,在前一个版本用head^表示很多就用head~100表示
+	git reset --hard head^  --回退到上一个版本.
+	git reset --hard 版本号. --也可以回退
+		查看日志git log 
+		查看自己的炒作 git reflog
 
