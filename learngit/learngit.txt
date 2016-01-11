@@ -19,4 +19,7 @@
 6.查看最新的工作区和最新的版本库里面的不同.
 	git diff.
 	git diff head -- filename(查看某一文件的不同)
+7.还在工作区和暂存区的文件的修改.
+	还在工作区的文件直接git checkout -- filename即可回到最新的版本库.
+	已经提交到暂存区的可以 git reset head filename 即可回到第一步.
 
