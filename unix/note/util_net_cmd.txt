@@ -1,0 +1,21 @@
+1.write
+2.wall
+3.ping
+4.ifconfig
+5.mail
+6.last
+7.lastlog 最后一次登录
+8.traceroute [域名|ip]访问路径
+9.netstat   -t  tcp协议
+			-u  udp协议
+			-l  listen监听端口
+			-r  路由
+			-n  查看ip地址和端口号
+			
+			
+			-tlun  查看正在使用的ip和端口号
+			-an    查看本机所有的连接
+			-rn    查看网关
+			
+			改过ip之后要重启网路服务.service network restart
+10.mount    挂载文件.光盘
