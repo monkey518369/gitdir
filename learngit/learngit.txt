@@ -1,0 +1,12 @@
+1.把一个问价夹编程git厂库.
+	使用gitbase进入文件夹,
+	git init.
+	这样这个文件夹就是git仓库了.
+2.添加一个文件到git仓库里面.
+	git add filename
+	git commit -m [message]
+3.查看git的状态.
+	git status.(可以告诉你当前是否有改变了还没添加的文件,是否有添加了还没有				提交的文件);
+4.查看修改文件的不同之处
+	git diff filename
+
