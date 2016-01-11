@@ -1,0 +1,26 @@
+隔离级别。
+
+mysql 查询隔离级别。
+select @@global.tx_isolation;<!-- 所有事务的隔离级别 -->
+select @@session.tx_isolation;<!--当前连接的隔离级别-->
+
+mysql 设置隔离级别
+
+set [sessiong|global] transaction isolation level [read uncommitted|read committed|repeatable read|serializable];
+
+mysql中定义了四种隔离级别。	
+
+隔离级别规定了一个事务中所做的修改，哪些是在事务中和事务间是可见的，哪些是不可见的，
+较低级别的隔离可以支持更高的并发和更低的系统开销。
+
+1.read uncommitted（读取未提交的数据）
+也被称为dirty read。性能一般，容易出错，很少有用。
+
+2.read committed（读取提交内容）
+大多数数据库默认的隔离级别（但不包含mysql）。也支持不可重复读取。
+
+3.repeatable read (可重复读)
+在一个事务中每次查询的结果都是一样的，在这个事务结束之前会忽略别的事务（或者单条语句）的提交。
+
+4.serializable
+完全锁定表，另一个事务不能读取或者操作表，必须等待该事物提交之后在进行，有效率问题。

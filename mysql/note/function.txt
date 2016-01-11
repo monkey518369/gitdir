@@ -1,0 +1,62 @@
+一.数学函数
+		1.abs(x)   绝对值函数.
+		2.pi()圆周率pi.结果保留6为小数.
+		3.sqrt(x)平方根函数.返回x的二次方根.其中x为非负整数.
+		4.mod(x,y)求余函数.x/y之后的余数.
+		5.ceil(x),ceiling(x),floor(x)    ceil和ceiling一样都是返回大于x最小整数.floor返回小于x最大整数.
+		6.rand(),rand(x) 随机数.每次返回的rand()值不同.相同的x返回的随机数相同.
+		7.round(x),round(x,y),truncate(x,y).
+			round(x) 四舍五入返回整数.
+			round(x,y).四舍五入返回,结果保留y位小数,
+			truncate(x,y).返回结果舍去y位之后的小数.
+		8.sign(x).符号函数.当x分别为负数,零,正数的时候返回结果分别为-1.0.1.
+		9.pow(x,y) power(x,y),exp(x).
+			pow(x,y),power(x,y) 返回x^y.
+			exp(x) 返回e^x.
+		10.log(x),log10(x);
+			log(x)以e为底数.
+			log10(x)以10为底数.
+		11.sin(x) asin(x)   cos(x)  acos(x)   tan(x)  atan(x)   cot(x)
+
+二.字符串函数.
+		1.char_length(x)  返回字符串x的字符个数.(中文占一个字符位置)
+			length(x)  返回utf8编码的字符串长度,(一个中文占三个字节).
+		2.concat(x,y....)字符串连接函数.把x,y...连接起来.(如果有一个参数为null则返回null,如果都是非二进制字符串则返回非二进制字符串)
+			concat_ws(x,\y...)以第一个参数分分隔符吧剩余的参数连接起来.如第一个参数为null则整个为null.若其中别的为null则忽略这个值.
+		3.lower(x) lcase(x) 将字符串全部转换为小写
+			upper(x) ucase(x)将字符串全部转换为大写
+		4.left(s,n),right(s,n)获取指定长度的字符串.
+		5.lpad(x,len,y),rpad(x,len,y)当x的长度小于len时由y补充.当x的长度大于len时则截断至len.
+		6.ltrim(x),rtrim(x),trim(x).去掉左边的空格,并且返回x.去掉右边的空格反悔x.删除两边的空格.
+			trim(y from x)删除x两端的y字符串.
+		7.repeat(s,n)返回一个重复n遍的s字符串.若n<0则返回null.若s,n有一个为null则返回null.
+		8.replace(x,y,z).使用字符串z代替所有的x中的字符串y.
+		9.strcmp(x,y).若xy相同则返回零.若x小于y怎返回-1,否则返回1.
+		10.substring(s,n,length).从s截取一个从n开始长度为length的字符串.若s的长度不够则就到末尾.(mid(s,n,length))
+		11.locate(x,y)|position(x,y)|instr(x,y)返回子字符串x在y中的位置.
+		12.reverse(x).将x的顺序反过来.
+		13.elt(n,str1,str2...)若n=1则返回str1,以此类推。若n大于个数或小于1则返回null。
+		14.field（s,str1,str2..）.返回s第一次出现的位置.若找不到则返回0.若s为null则返回0;
+三.日期时间函数.
+		1.获取当前日期:curdate()|current_date();(+0时返回yyyymmdd数字.不+0则返回yyyy-mm-dd);
+		  获取当前时间curtime()|current_time.同curdate和current_date();
+		2.获取当前日期和时间.current_timestamp().localtime(),sysdate();now();
+		3.unix时间错.unix_timestamp(date).若没有参数date则返回当前的微妙数.若有怎返回参数的微妙数.date可以使date,datetime,timestamp,yymmdd,yyyymmdd的样式.
+		4.month(date),monthname(date)返回月数和月的名字
+		5.返回星期几的函数.dayname(d),dayofweek(d),weekday(d);
+		6.获取星期函数.week(d),weekofyear(d);
+		7.dayofyear(),dayofmonth();
+		8.date_format(date,format);将时间转换成format格式	
+
+四.条件判断函数
+		1.if(per,v1,v2),若per为true则返回v1否则返回v2.
+		2.ifnull(v1,v2).若v1不为null则返回v1.否则返回v2.
+		3.case per when v1 then r1 .....  else re.
+		
+五.体统信息.
+		1.version().版本号.
+		2.connection_id().当前用户的连接数.
+		3.show processlist;show full processlist;查看当前连接数.以及状态.
+		4.database(),schema();当前连接的数据库.
+		5.user();
+		6.conv(p,n,w).将p由n进制转换成w进制.
