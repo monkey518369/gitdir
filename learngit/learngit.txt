@@ -16,3 +16,7 @@
 		查看日志git log 
 		查看自己的炒作 git reflog
 
+6.查看最新的工作区和最新的版本库里面的不同.
+	git diff.
+	git diff head -- filename(查看某一文件的不同)
+
