@@ -22,4 +22,8 @@
 7.还在工作区和暂存区的文件的修改.
 	还在工作区的文件直接git checkout -- filename即可回到最新的版本库.
 	已经提交到暂存区的可以 git reset head filename 即可回到第一步.
+8.在git中删除文件 .
+	1.在工作区删除了文件.
+	2.若是删除错了则可以git checkout -- filename
+	3.若是就是想删除.git rm filename,然后git commit -m 'xx'
 
