@@ -29,5 +29,7 @@
 9.把本地文件推送到远程github.
 	git remote add origin https:/github.com/monkey518369@163.com/gitdir(连接远程库)
 	git push -u origin master(吧本地推送到远程库)
+10.从远程下载
+	git clone ip
 	
 
