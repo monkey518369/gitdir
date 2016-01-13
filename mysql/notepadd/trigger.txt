@@ -1,0 +1,12 @@
+1.触发器的基本语法
+	create trigger trigger_name trigger_time trigger_event
+	 on table_name for each row trigger_stmt
+
+	 trigger_name : 触发器名称.
+	 trigger_time : 触发器出发时间.可以为before|after
+	 trigger_event : 标识触发事件.insert|update|delete
+	 table_name : 触发器所在的表名
+	 trigger_stmt : 触发器程序体
+
+2.查看触发器.
+	show triggers;这个显示会比较混乱,但是如果加上\G之后就会比较调理.是反斜杠

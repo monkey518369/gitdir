@@ -1,0 +1,76 @@
+数值 :   
+		整形 : tinyint(1 2^8)  smallint(2 2^16)   mediumint(3 2^24)   int(4 2^32)   bigint(8 2^64)   
+		浮点型 : float(4 2^32)   double(8 2^64)   (若超出范围则四舍五入)
+		定点小数 : decimal		(若超出范围则四舍五入)
+		
+日期时间 : year(1 yyyy 以四位数字或则字符串表示的时候 范围1901-2155   以两位字符串表示 '00'|'0'--'69' 翻译为20xx年  '70'-'99' 翻译为19xx
+				两位数字的时候0翻译成0000年 ,其他和两位字符串一样);
+		   
+		   time(3 HH:MM:SS 范围-838-59-59~838-59-59 可以大于24或则小于0  可以是'D HH:MM:SS'样式的字符串,D表示天,最后会自动转换为小时.D的范围(0~34),
+							也可以是'HH:MM' 'D HH:MM:SS' 'D HH' 'SS',
+							'XXXXXX'格式的没有间隔符的字符串或则数值假定都是有意义的.格式合法但是超出范围的值将被转换为最接近的端点.无效的被转换成00:00:00)   
+		   
+		   date(3 YYYY-MM-DD|yyyymmdd 范围 1000-01-01~9999-12-3 字符串和数字均可以   current_date|now()表示当前日期)   
+		   
+		   datetime(8 YYYY-MM-DD HH:MM:SS|YYYYMMDDHHMMSS  字符串或者数字 也可以是两位的yy.这个准守year的标准)   
+		   
+		   timestamp(4 同datetime)
+
+字符串(文本形式) : char  (固定长度,char(m)存储长度则为m,1<=m<=255)
+		 
+		 varchar   (变长.varchar(m)存储长度为l+1,1<=l<=m<=255,l位实际长度)
+		 
+		 tinytext   (l+1字节l<2^8)
+		 
+		 text   (l+2字节 l<2^16字节)
+		 
+		 mediumtext  (l+3字节 l<2^24)
+		 
+		 longtext  (l+4字节  l<2^32)
+		 
+		 enum   (1|2)
+		 
+		 binary   ()
+		 
+		 varbinary   
+		 
+		 blob   
+		 
+		 enum   (65535  enum('data','data'...)每次只能存入一个值)
+		 
+		 set	(64个最多.enum('data','data'...)每次可以存入多个,可重负,但是mysql会去重,若错误一个则会忽略)
+
+		 
+字符串(二进制形式) :    bit(m)		大约需要(m+7)/8个字节m表示每个值的位数范围为1~64,若m省略则为1.若分配的值小于m则左边用0填充,查询的时候不会显示出来,
+									若超出范围则截取保留m位最接近的数
+						
+						binary(m)	固定长度的二进制字符串固定为m个字节
+						
+						varbinary(m)可变长度的二进制字符串最大为m+1个字节
+						
+						tinyblob	最大长度2^8-1
+							
+						blob		最大长度2^16-1
+						
+						mediumblob	最大长度2^24-1
+
+						longblob	最大长度2^32-1
+						
+建表的时候的int(4)是显示长度,与存储空间大小没有关系.若小于这些位则用空格代替,若大于则正常显示
+
+
+
+运算符 : 
+		1.算术运算符      +   -   *  /   %(取余)
+		
+		2.比较运算符      =  <=>(安全的等于)   <>|!=(不等于)
+							is null	判断一个值是否为null
+							is not null 判断是一个值是否不为null
+							least      有多个值时返回最小的值
+							greatest   有多个值时返回最大的值
+							between  and   判断一个值是否在两个值之间
+							isnull  同is null
+							in    判断一个值是否为in中的任意一个
+							not in
+							like    模糊比较
+							regexp   正则表达式匹配

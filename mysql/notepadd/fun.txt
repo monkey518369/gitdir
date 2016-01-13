@@ -1,0 +1,6 @@
+mysql在查询的时候可以用group by进行分组并且可以用having进行筛选.
+和where不同的是,group by是在分组进行完成后才执行的而where是在分组进行之前进行的.
+和group by可以一起使用的函数有max min count sum avg等
+
+
+当和join  on 一起使用 的时候join on会比where优先执行

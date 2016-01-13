@@ -1,0 +1,8 @@
+select * from tableName where price > any(...);//只要大于任何一个即可.
+select * from tableName where price > all(...);//必须大于所有的才可以.
+exists(..)//当exists中的内容为true时则主查询执行
+
+
+
+union把两个查询结果组合起来返回,会删除重复发行.
+union all不会删除重复的行.

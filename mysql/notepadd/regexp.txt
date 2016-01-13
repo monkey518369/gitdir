@@ -1,0 +1,14 @@
+regexp正则表达式匹配.
+select * from tableName where name regexp '表达式';
+
+
+^匹配开始的字符.(不一定是一个字符,可以十多个)  ^jk以jk开始的字符.
+$匹配结束的字符.jd$以jk结束的字符.
+.匹配任何单个字符.可以放在任何位置.
+*匹配多个任何字符.可以放在任何位置.
++至少一个,可以多个的匹配字符.ab+,匹配ab开始的字符
+<string>匹配包含string的文本
+[string]匹配包含string中任何一个字符的文本
+[^string]匹配不在string中的任何字符.
+string{n,}匹配前面的字符,至少n次.b{3},匹配bbb,bbbbb
+string{n,m}匹配string至少n次,至多m次
