@@ -1,0 +1,53 @@
+使用explain 解释sql语句时肯能出现一下字段.
+1.id select识别符.这是select的查询序列号.是sql语句的执行顺序.
+2.selectType 
+  (1).simple.表示简单的select 没有union和子查询.
+  (2).primary.最外面的select.在有子查询的语句中.最外面的select就是primary.
+  (3).union.union语句的第二个或者说是后面的哪一个.
+  (4).depend union.union查询的后面一个.
+  (5).union result.union的结果.
+--不中重要的掠过.
+3.table	查询的表.
+4.type.连接类型.
+	4.1 system.表仅有一行.这是select的查询序列号const的特例.
+	4.2 const.表最多有一个匹配行.const用语比较primary key或者unique索引.是只有用到primary key或则unique索引的时候才行.
+		有时候肯能只查出一行但是没有用priamry key 和unique,也不是const.
+	4.3 eq_ref.可能室外建.但是不确定.就是"对于每个来自前面一个表的行组合,从该表中读取一行,"
+	4.4 ref.对与每个来自前面一个表的行组合,从该表总读取多行.
+	4.5 ref_or_null.同ref但是包含了搜索null的行.
+	4.6 index_merge.该连接类型表示使用了索引合并优化方法.
+	4.7 unique_subquery
+	4.8 index_subquery
+	4.9 range.给定范围内的检索.使用一个索引来检索行.select * from tableName where indexName in (1,2);
+	4.10 index.
+	4.11 all.对于每个来自先前表的组合,进行完整的表烧苗.
+5.possible_keys提示使用哪个索引会在该表中找到行.
+6.keys mysql使用的索引.import.
+7.key_len mysql使用的索引长度.
+8.ref ref显示那个列或常数与id一起从表中选择行.
+9.rows.显示mysql执行的行数.
+10.extra mysql解决查询的详细信息.
+    10.1 distinct. mysql发现匹配的行之后停止为当前的行组合搜索更多的行.
+	10.1 not exits
+	10.2 range checked for each record.没哟找到合适的索引.
+	10.3 useing filesort
+	10.4 uaing index
+	10.5 using temporary.为了解决查询.mysql需要一个临时表来容乃结果.典型的是group by 和order by时.
+	10.6 using where
+	10.7 Using sort_union(...), Using union(...),Using intersect(...) 这些函数说明如何为index_merge联接类型合并索引扫描
+	10.9 Using index for group-by
+
+类似于访问表的Using index方式，Using index for group-by表示MySQL发现了一个索引，可以用来查询GROUP BY或DISTINCT查询的所有列，而不要额外搜索硬盘访问实际的表。并且，按最有效的方式使用索引，以便对于每个组，只读取少量索引条目。
+  
+  
+  
+  
+  
+  
+  顺便讲一下union.
+  使用union连接后会筛选掉重复的数据.先排序,去掉重复的结果然后返回.
+  
+  union all 只是简单的合并并且返回.不会去掉重复的数据.
+  
+  union只能使用相同列数的查询,但是不要求列的数据类型也一样.显示查询结果的时候是按照前一个的列名称显示的.
+  
