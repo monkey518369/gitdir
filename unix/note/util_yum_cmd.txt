@@ -1,0 +1,5 @@
+1.yum查询所有的rpm包.yum list
+2.yum查询yum search [短包名]
+3.yum安装.yum install [包名] 若在install前面加上-y则会自动回答所有的问题
+4.yum升级.yum -y update [包名] 若不加包名,则则升级所有的软件,包括内核
+5.yum卸载.yum -y remove [包名] 会把依赖全部卸载,容易导致系统崩溃

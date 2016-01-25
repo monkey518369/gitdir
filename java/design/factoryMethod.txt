@@ -1,0 +1,4 @@
+1.工厂方法模式.
+interface Game{}
+interface GameFactory{}
+	

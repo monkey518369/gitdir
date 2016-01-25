@@ -1,0 +1,34 @@
+1.rpm包命名规则
+	httpd-2.2.15-16.el6.centos.l.i686.rpm
+	
+	httpd    软件包名
+	2.2.15    软件版本号
+	16        软件发布的次数
+	el6.centos 适合的linux平台
+	i686      适合的硬件平台
+	rpm        rpm包扩展名
+	
+2.安装rpm包
+	rpm -ivh 包名
+		-i(install)   安装
+		-v(verbose)   显示详细信息
+		-h(hash)      显示进度
+	安装的时候会显示依赖.只能一个一个的装.
+	
+3.升级软件
+	rpm -Uvh 包名  upgrade
+	
+4.卸载软件
+	rpm -e 包名(简单包名)  --nodeps(不检测依赖)
+	
+5.rpm包查询
+	rpm -qa | grep name
+		-q(query) 查询包名(简单包名) 
+		-a(all)   所有的
+		-i(information) 包的信息
+		-p(package)  未安装的软件包
+		-l(list)列表安装位置
+		-f(file)查询系统文件名属于哪个包
+		-R(requires) 查询依赖包
+		
+		|grep  名称(查询有这个关键字的软件)

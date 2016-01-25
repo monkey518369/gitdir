@@ -1,0 +1,6 @@
+1.用户配置文件主要有四个
+  1./etc/passwd
+  2./etc/shadow
+  3./etc/group
+  4./etc/gshadow
+

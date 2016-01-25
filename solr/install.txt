@@ -1,0 +1,10 @@
+1.在solr /bin中有个install_solr_service.sh的文件,帮助你把solr安装成一个系统服务
+	tar xzf solr-5.0.0.tgz solr-5.0.0/bin/install_solr_service.sh --strip-components=2
+	sudo bash ./install_solr_service.sh solr-5.0.0.tgz
+	这里把配置文档翻入/opt吧索引放入/var/solr中.并切创建一个叫solr的用户
+ 相当于运行饿了sudo bash ./install_solr_service.sh solr-5.0.0.tgz -i /opt -d /var/solr -u solr -s solr -p 8983
+
+2.运行(在/var/solr目录下)
+	bin/solr start 在默认-p 8983中运行solr
+
+	
