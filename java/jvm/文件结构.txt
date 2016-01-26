@@ -1,0 +1,7 @@
+1.class文件的结构
+	class问价是以八个字节为单位的二进制流.各个数之间没有分隔符.
+	1.每个class文件的头四个字节被称为Magic Number.它的唯一作用是标志这个class文件是否是一个被jvm所接收到文件.
+	2.紧接着magic number的四个字节是版本号.5,6是minor version(此版本号)7,8是major version(主版本号)
+	3.常量池.表数据类型.前面是一个2个字节的统计数(constant_pool_count).这个数是从1开始的引用(0留下表示一个引用什么也不指向).
+		里面主要有两大类常量.1.字面量(Literal).2.符号引用(symbolic reference)(1.类和接口的全限定名2.字段的名称和描述符3.方法的名称和描述符).
+	4.访问标志.常量池结束之后是访问标志(access_flags)
