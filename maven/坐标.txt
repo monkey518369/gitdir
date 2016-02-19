@@ -1,0 +1,24 @@
+<groupId>org.sonatype.nexus</groupId>
+<artifactId>nexus-indexer</artifactId>
+<version>2.0.0</version>
+<packaging>jar</packaging>
+
+
+groupId:定义当前maven项目所属的实际项目.实际项目可能是一个大项目,其中包括很多maven模块.
+artifactId:定义实际项目中的一个项目(模块).
+version:定义maven项目目前所处的版本.
+packaging:定义maven项目的打包方式.不定义默认使用jar包.
+classifier:
+
+scope:依赖范围.(编译classpath,运行classpath,测试classpath).
+	compile:编译依赖范围.这个也是默认的依赖范围.对三种都有效.
+	test:测试依赖范围.支队测试classpath有效
+	provided:已提供依赖范围.
+	runtime:运行时依赖范围.只有在测试和运行classpath有效.
+	system:系统依赖范围.
+	import:导入依赖范围.
+
+传递性依赖:当第二依赖的范围是compile和runtime的时候,传递性依赖的范围与第一依赖一致,当第二依赖的范围是test的时候没有传递性依赖.
+			当第二依赖的范围是provided的时候值传递第一依赖也为provided的依赖.
+
+依赖调解:1.路径最近者优先2.先声明者优先
