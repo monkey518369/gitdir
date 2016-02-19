@@ -49,7 +49,7 @@
 	1.git reset --hard id 	//退回到id的时候版本库和工作区,暂存区都是这样
 	2.git reset --soft id 	//退回到id的时候的版本库,暂存区和工作区不改变
 	3.git reset --mixed id 	|git reset id	//改变引用指向(版本库)和暂存区但工作区不改变
-	4.git reset --filename  //相对于git add filename的反向操作.吧一个文件去除暂存区
+	4.git reset filename  //相对于git add filename的反向操作.吧一个文件去除暂存区
 		git reset HEAD filename 	//同上面的命令
 	2.git reflog [show  branchname] [| head -n]   //显示操作记录,这可可以后悔你的reset,然后重新回到另一个reset版本
 	   //可以使用简单的<refnaem>@{<n>}进行reset.   e.g. git reset --hard master@{2}
